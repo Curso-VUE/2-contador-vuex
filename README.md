@@ -3,7 +3,8 @@
 1. [Primer propyecto con Vue UI](#vueUI)
 2. [Entendiendo un proyecto creado con Vue Cli](#vueCli)
 3. [Introducción a Vuex](#vuex)
-4. [Definir la tienda de daots con Vuex, state y mutations](#store)
+4. [Definir la tienda de datos con Vuex, state y mutations](#store)
+5. [Componente Counter](#counter)
 
 <hl>
 
@@ -84,4 +85,57 @@ export default new Vuex.Store({
   modules: {
   }
 })
+~~~
+
+<hl>
+
+<a name="counter"></a>
+
+## 5. Componente counter
+
+Creamos un nuevo componente *counter.vue*:
+
+~~~
+<template>
+  <div class="container">
+    Hola desde counter
+  </div>
+</template>
+
+<script>
+export default {
+  
+}
+</script>
+~~~
+
+Luego lo inportamos en el script del componente principal:
+
+~~~
+<script>
+import CounterCmp from "@/components/Counter";
+export default {
+  name: "App",
+  components: {
+    CounterCmp,
+  },
+  data() {
+    return {
+      text: "hola",
+    };
+  },
+};
+</script>
+~~~
+
+Y lo renderizamos en el template, usando una etiqueta en minúsculas y con guiones en lugar de CamelCase: 
+
+~~~
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <p>{{ text }}</p>
+    <counter-cmp></counter-cmp>
+  </div>
+</template>
 ~~~
