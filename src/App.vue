@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <p>{{ text }}</p>
     <counter-cmp></counter-cmp>
   </div>
 </template>

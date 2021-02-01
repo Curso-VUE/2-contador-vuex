@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h2 class="text-center">{{ appName }}</h2>
     <button
       class="btn btn-success btn-block"
       @click="increment"
@@ -22,7 +23,7 @@
 import { mapState, mapMutations } from 'vuex'
 export default {
   computed: {
-    ...mapState(['counter']),
+    ...mapState(['counter', 'appName']),
   },
   methods: {
     ...mapMutations(['increment', 'decrement'])

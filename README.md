@@ -201,6 +201,7 @@ Y modificamos el template para acceder a los elementos del state mapeados:
 
 ~~~
   <div class="container">
+    <h2 class="text-center">{{ appName }}</h2>
     <button
       class="btn btn-success btn-block"
       @click="increment"
