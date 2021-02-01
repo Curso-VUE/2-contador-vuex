@@ -2,16 +2,16 @@
   <div class="container">
     <button
       class="btn btn-success btn-block"
-      @click="$store.commit('increment')"
+      @click="increment"
     >
       Incrementar
     </button>
     <div class="alert alert-secondary text-center mt-3">
-      {{ $store.state.counter }}
+      {{ counter }}
     </div>
     <button
       class="btn btn-danger btn-block"
-      @click="$store.commit('decrement')"
+      @click="decrement"
     >
       Decrementar
     </button>
@@ -19,7 +19,13 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
-  
+  computed: {
+    ...mapState(['counter']),
+  },
+  methods: {
+    ...mapMutations(['increment', 'decrement'])
+  }  
 }
 </script>

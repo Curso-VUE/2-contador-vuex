@@ -6,6 +6,7 @@
 4. [Definir la tienda de datos con Vuex, state y mutations](#store)
 5. [Componente Counter](#counter)
 6. [Primera version del componente accediendo a Vuex](#vuex1)
+7. [Segunda version del componente: mapState y mapMutations](#vuex2)
 
 <hl>
 
@@ -170,4 +171,50 @@ Para añadir los eventos al click del botón utilizamos ```@click="$store.commit
     >
       Decrementar
     </button>
+~~~
+
+<hl>
+
+<a name="vue2"></a>
+
+## 7. Segunda version del componente: mapState y mapMutations
+
+Aunque la forma de trabajar con *$store.state* y *$store.commit* es prefectamente válida, vuex proporciona dos elementos para mapear el estado y los mutations y trabajar de forma más limplia.
+
+En el script del componente declarams computed y methods de esta forma:
+
+~~~
+<script>
+import { mapState, mapMutations } from 'vuex'
+export default {
+  computed: {
+    ...mapState(['counter']),
+  },
+  methods: {
+    ...mapMutations(['increment', 'decrement'])
+  }  
+}
+</script>
+~~~
+
+Y modificamos el template para acceder a los elementos del state mapeados:
+
+~~~
+  <div class="container">
+    <button
+      class="btn btn-success btn-block"
+      @click="increment"
+    >
+      Incrementar
+    </button>
+    <div class="alert alert-secondary text-center mt-3">
+      {{ counter }}
+    </div>
+    <button
+      class="btn btn-danger btn-block"
+      @click="decrement"
+    >
+      Decrementar
+    </button>
+  </div>
 ~~~
