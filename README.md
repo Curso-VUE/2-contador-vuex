@@ -5,6 +5,7 @@
 3. [Introducción a Vuex](#vuex)
 4. [Definir la tienda de datos con Vuex, state y mutations](#store)
 5. [Componente Counter](#counter)
+6. [Primera version del componente accediendo a Vuex](#vuex1)
 
 <hl>
 
@@ -138,4 +139,35 @@ Y lo renderizamos en el template, usando una etiqueta en minúsculas y con guion
     <counter-cmp></counter-cmp>
   </div>
 </template>
+~~~
+
+<hl>
+
+<a name="vuex1"></a>
+
+## 6. Primera versión del componente accediendo a vuex
+
+En el template del componente counter añadimos los elementos necesarios para el contador:
+
+Para poder ver el estado de la variable counter hacemos referencia a ella con ```{{ $store.state.counter }}```.
+
+Para añadir los eventos al click del botón utilizamos ```@click="$store.commit('nombre-del-mutation')```
+
+~~~
+  <div class="container">
+    <button
+      class="btn btn-success btn-block"
+      @click="$store.commit('increment')"
+    >
+      Incrementar
+    </button>
+    <div class="alert alert-secondary text-center mt-3">
+      {{ $store.state.counter }}
+    </div>
+    <button
+      class="btn btn-danger btn-block"
+      @click="$store.commit('decrement')"
+    >
+      Decrementar
+    </button>
 ~~~
