@@ -69,7 +69,7 @@ Lo primero que hacemos es cargar el CDN de boostrap en el index.html de public. 
 
 En el archivo *index.js* de la carpeta *store* añadimos el estado **counter** y dos *mutations* para incrementar y decrementar el contador:
 
-~~~
+~~~js
 export default new Vuex.Store({
   state: {
     counter: 0
@@ -97,7 +97,7 @@ export default new Vuex.Store({
 
 Creamos un nuevo componente *counter.vue*:
 
-~~~
+~~~html
 <template>
   <div class="container">
     Hola desde counter
@@ -113,7 +113,7 @@ export default {
 
 Luego lo inportamos en el script del componente principal:
 
-~~~
+~~~html
 <script>
 import CounterCmp from "@/components/Counter";
 export default {
@@ -132,7 +132,7 @@ export default {
 
 Y lo renderizamos en el template, usando una etiqueta en minúsculas y con guiones en lugar de CamelCase: 
 
-~~~
+~~~html
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
@@ -154,7 +154,7 @@ Para poder ver el estado de la variable counter hacemos referencia a ella con ``
 
 Para añadir los eventos al click del botón utilizamos ```@click="$store.commit('nombre-del-mutation')```
 
-~~~
+~~~html
   <div class="container">
     <button
       class="btn btn-success btn-block"
@@ -183,7 +183,7 @@ Aunque la forma de trabajar con *$store.state* y *$store.commit* es prefectament
 
 En el script del componente declarams computed y methods de esta forma:
 
-~~~
+~~~html
 <script>
 import { mapState, mapMutations } from 'vuex'
 export default {
@@ -199,7 +199,7 @@ export default {
 
 Y modificamos el template para acceder a los elementos del state mapeados:
 
-~~~
+~~~html
   <div class="container">
     <h2 class="text-center">{{ appName }}</h2>
     <button
